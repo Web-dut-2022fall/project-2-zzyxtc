@@ -1,0 +1,46 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Page.
+{% endblock %}
+
+{% block body %}
+
+<h3>Editing the Page ->
+     <span style="color:navy; font-size: larger; background-color: palegreen; ">
+         {{ newTitle }}
+     </span>
+    </h3>
+
+<form action="{% url 'editPage' newTitle %}" method = "POST">
+    {% csrf_token %}
+    <textarea name="Ncontent" cols="30" rows="5" >{{ newContent }}</textarea>
+    
+    <div style="text-align: justify;">
+        <input style="background-color: rgb(59, 77, 235); color: white;" 
+        type="submit" value="Save">
+    </div>
+</form>
+{% endblock %}
+
+{% block nav %}
+<div >
+    <h2>Help</h2>
+    <p>Help for Writing Content In Markdown Language. </p>
+</div>
+    
+<div>
+     <b>#</b>The largest heading.
+<br> <b>##</b>The second largest heading.
+<br> <b>**</b>This is bold text<b>**</b>
+<br> <b>*</b>This text is italicized<b>*</b>
+<br> To Link <b>[Link Name](url)</b> 
+<br><a href="https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax" target="_blank" >More Help</a>
+</div>
+    
+   
+    
+       
+
+
+{% endblock %}
